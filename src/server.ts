@@ -28,7 +28,7 @@ app.post('/', async (req, res) => {
     return res.send("Post enviado")
 })
 
-app.get('/subjects', async (req, res) => {
+app.get('/', async (req, res) => {
     const subject = req.query.subject as string
 
     const response = await prisma.post.findMany({
