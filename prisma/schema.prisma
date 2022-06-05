@@ -16,13 +16,16 @@ model Post {
   title String
   createdAt DateTime
   subject String
+  madeBy String?
 }
 
 
 
 model User {
   id       String @id @default(uuid())
-  email    String   @unique
+  email    String  @unique
   password String
   infos String?
+  adm Boolean?
+  teacher Boolean?
 }
