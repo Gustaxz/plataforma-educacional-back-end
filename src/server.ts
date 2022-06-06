@@ -12,20 +12,19 @@ app.listen(process.env.PORT || 3333, () => {
 })
 
 app.post('/', async (req, res) => {
-    const { container, title, subject } = req.body
+    const { container, title, subject, madeBy } = req.body
 
-    await prisma.post.create({
+    const response = await prisma.post.create({
         data: {
             container,
             title,
             createdAt: new Date(),
             subject,
+            madeBy,
         }
     })
 
-    console.log(req.body)
-
-    return res.send("Post enviado")
+    return res.json(response)
 })
 
 app.get('/subjects', async (req, res) => {
